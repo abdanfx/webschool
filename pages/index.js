@@ -35,7 +35,7 @@ import SendIcon from "@mui/icons-material/Send";
 import Stack from "@mui/material/Stack";
 
 // import { makeStyles } from "@material-ui/core/styles";
-import { ThemeProvider } from "@material-ui/styles";
+import { ThemeProvider } from "@material-ui/core/styles";
 import Image from "next/image";
 import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
