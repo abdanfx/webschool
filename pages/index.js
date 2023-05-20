@@ -22,7 +22,7 @@ import Paper from "@mui/material/Paper";
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@mui/styles";
 import TextField from "@mui/material/TextField";
 import FormControl from "@mui/material/FormControl";
 import Input from "@mui/material/Input";
@@ -35,7 +35,7 @@ import SendIcon from "@mui/icons-material/Send";
 import Stack from "@mui/material/Stack";
 
 // import { makeStyles } from "@material-ui/core/styles";
-import { ThemeProvider } from "@material-ui/core/styles";
+import { ThemeProvider } from "@mui/material/styles";
 import Image from "next/image";
 import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
@@ -74,6 +74,11 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     height: "80px",
   },
+}));
+
+// Card
+const CardSpacing = makeStyles((theme) => ({
+  padding : 30,
 }));
 
 // Carousel Style
@@ -313,6 +318,7 @@ function CircleBackground() {
 
 export default function Home() {
   const classes = useStyles();
+  const classesCard = CardSpacing();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -492,7 +498,7 @@ export default function Home() {
               <Typography
                 className={classes.textBackground}
                 variant="h3"
-                sx={{ paddingLeft: "20px" }}
+                sx={{ paddingLeft: "40px" }}
                 style={{ fontFamily: "Montserrat Alternates" }}
                 gutterBottom
               >
@@ -501,7 +507,7 @@ export default function Home() {
               <Typography
                 className={classes.textBackground}
                 variant="h3"
-                sx={{ paddingLeft: "20px" }}
+                sx={{ paddingLeft: "40px" }}
                 style={{ fontFamily: "Montserrat Alternates" }}
               >
                 Learn with FUN!
@@ -539,7 +545,7 @@ export default function Home() {
               component="h3"
               sx={{
                 display: "flex",
-                padding: "20px",
+                paddingRight: "20px",
                 lineHeight: "70px",
                 alignItems: "center",
                 color: "white",
@@ -618,8 +624,15 @@ export default function Home() {
             flexGrow: 1,
           }}
         >
-          <Grid container spacing={2} sx={{ justifyContent: "center" }}>
-            <Grid>
+          <Grid
+            spacing={{ xs: 2, md: 1 }}
+            container
+            sx={{
+              flexGrow: 1,
+            }}
+            justifyContent="center"
+          >
+            <Grid item md={3}>
               <Card sx={{ maxWidth: 345 }} elevation="5">
                 <CardMedia
                   sx={{
@@ -648,7 +661,7 @@ export default function Home() {
               </Card>
             </Grid>
 
-            <Grid>
+            <Grid item md={3}>
               <Card sx={{ maxWidth: 345 }} elevation="5">
                 <CardMedia
                   sx={{
@@ -677,7 +690,7 @@ export default function Home() {
               </Card>
             </Grid>
 
-            <Grid>
+            <Grid item md={3}>
               <Card sx={{ maxWidth: 345 }} elevation="5">
                 <CardMedia
                   sx={{
@@ -706,7 +719,7 @@ export default function Home() {
               </Card>
             </Grid>
 
-            <Grid>
+            <Grid item md={3}>
               <Card sx={{ maxWidth: 345 }} elevation="5">
                 <CardMedia
                   sx={{
@@ -788,8 +801,13 @@ export default function Home() {
         >
           <Paper elevation={3} sx={{ padding: "40px" }}>
             <FormControl fullWidth variant="standard">
-              <TextField sx={{ marginBottom: "30px" }} fullWidth label="Email" id="Email" />
-              
+              <TextField
+                sx={{ marginBottom: "30px" }}
+                fullWidth
+                label="Email"
+                id="Email"
+              />
+
               <TextField
                 id="outlined-multiline-static"
                 label="Message"
